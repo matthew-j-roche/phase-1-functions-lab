@@ -1,76 +1,69 @@
-// Code your solution in this file!
+const hq = 42;
 
-
-function distanceFromHqInBlocks(start){
-
-    const hq = 42
-    
+function distanceFromHqInBlocks(start) {
     if (start > hq) {
-        return (start - hq);
+        return (start - hq)
     }
-    if (start < hq) {
-        return (hq - start);
-    }        
-}
+    else if (start < hq) {
+        return (hq - start)
+    }
+};
 
-distanceFromHqInBlocks(50)
+distanceFromHqInBlocks(43);
 
-distanceFromHqInBlocks(34)
+distanceFromHqInBlocks(50);
 
-function distanceFromHqInFeet(start){
+distanceFromHqInBlocks(34);
 
-    const hq = 42
-
+function distanceFromHqInFeet(start) {
     if (start > hq) {
-        return ((start - hq)*264);
+        return ((start - hq) * 264)
     }
-    if (start < hq) {
-        return ((hq - start)*264);
-    }        
-}
-
-distanceFromHqInFeet(43)
-
-distanceFromHqInFeet(50)
-
-distanceFromHqInFeet(34)
-
-function distanceTravelledInFeet(start, destination) {
-    if (start > destination) {
-        return ((start - destination)*264);
+    else if (start < hq) {
+        return ((hq - start) * 264)
     }
-    if (start < destination) {
-        return ((destination - start)*264);
+};
+
+distanceFromHqInFeet(43);
+
+distanceFromHqInFeet(50);
+
+distanceFromHqInFeet(34);
+
+function distanceTravelledInFeet(start, stop) {
+    if (start > stop) {
+        return ((start - stop) * 264)
     }
-}
-
-distanceTravelledInFeet(43, 48)
-
-distanceTravelledInFeet(50, 60)
-
-distanceTravelledInFeet(34, 28)
-
-function calculatesFarePrice(start, destination) {
-    const distance = distanceTravelledInFeet(start, destination); 
-    const dist = distance - 400; 
-  
-    if (distance < 400) {
-      return 0;
+    else if (start < stop) {
+        return ((stop - start) * 264)
     }
-    else if (distance > 400 && distance < 2000) {
-      return dist * 0.02; 
-    }
-    else if (distance > 2000 && distance < 2500) {
-      return 25; 
-    }
-    else {
-      return "cannot travel that far"; 
-    }
-}
-calculatesFarePrice(43, 44)
+};
 
-calculatesFarePrice(34, 32)
+distanceTravelledInFeet(43, 48);
 
-calculatesFarePrice(50, 58)
+distanceTravelledInFeet(50, 60);
 
-calculatesFarePrice(34, 24)
+distanceFromHqInFeet(34, 28);
+
+function calculatesFarePrice(start, stop) {
+    if (distanceTravelledInFeet(start, stop) <= 400) {
+        return 0
+    }
+    else if ((distanceTravelledInFeet(start, stop) > 400) && (distanceTravelledInFeet(start, stop) <= 2000)) {
+        return ((distanceTravelledInFeet(start, stop) - 400) * .02)
+    }
+    else if ((distanceTravelledInFeet(start, stop) > 2000) && (distanceTravelledInFeet(start, stop) < 2500)) {
+        return 25
+    }
+    else if (distanceTravelledInFeet(start, stop) >= 2500) {
+        return 'cannot travel that far'
+    }
+};
+
+calculatesFarePrice(43, 44);
+
+calculatesFarePrice(34, 32);
+
+calculatesFarePrice(50, 58);
+
+calculatesFarePrice(34, 23);
